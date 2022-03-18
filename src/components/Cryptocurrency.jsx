@@ -1,13 +1,14 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import {orderCrypto, payment} from '../data/cryptocurrency';
-import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { addToBookmark } from '../redux/action';
 
 const Cryptocurrency = () => {
     const [coinData, setCoinData] = useState([]);
     const [whatCoinOrder, setWhatCoinOrder] = useState("BTC");
     const [whatCoinPayment, setWhatCoinPayment] = useState("KRW"); // KRW 또는 BTC
+    const dispatch = useDispatch(); // 상태 갱신
 
     // 선택지 변경시 실행
     useEffect(() => {
@@ -36,9 +37,17 @@ const Cryptocurrency = () => {
     }
     // console.log(coinData);
 
-    let state = useSelector(state => state.bookmarkReducer);
-    // combineReducers로 결합한 reducer중에서 사용할 reducer 선택
-    console.log("state는 : ", state);
+    const appendToBookmark = () => {
+        let time = new Date(coinData.trade_timestamp); // 타임 스탬프 날짜 변환
+        dispatch(addToBookmark(
+            {
+                // 객체 형식으로 저장
+                "order" : whatCoinOrder, 
+                "payment": whatCoinPayment, 
+                "price": coinData.trade_price,
+                "date": time,
+            })); // action 객체
+    }
 
     return (
     <div>
@@ -54,7 +63,7 @@ const Cryptocurrency = () => {
         <div>
             <span> 거래 가격 : {coinData.trade_price} {whatCoinPayment}</span>
             <button onClick={refreshing}>가격 갱신</button>
-            <button onClick={null}>지금 데이터 기록 하기</button>
+            <button onClick={appendToBookmark}>지금 데이터 기록 하기</button>
         </div>
     </div>
     )
