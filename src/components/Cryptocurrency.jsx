@@ -1,6 +1,8 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import {orderCrypto, payment} from '../data/cryptocurrency';
+import { useSelector } from 'react-redux';
+
 
 const Cryptocurrency = () => {
     const [coinData, setCoinData] = useState([]);
@@ -32,10 +34,15 @@ const Cryptocurrency = () => {
         .then(el => setCoinData(el.data["0"]))
         .catch(err => console.log(err));
     }
-    console.log(coinData);
+    // console.log(coinData);
+
+    let state = useSelector(state => state.bookmarkReducer);
+    // combineReducers로 결합한 reducer중에서 사용할 reducer 선택
+    console.log("state는 : ", state);
+
     return (
     <div>
-        <p>암호화폐 시세</p>
+        <p>현재 찜 개수 {}</p>
         <span>구매할 암호화폐</span>
         <select onChange={coinSetting}>
             {orderCrypto.map((el, idx) => <option key={idx} value={el}>{el}</option>)}

@@ -3,10 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux'; 
+import reducer from './redux/reducer';
+import { Provider } from 'react-redux';
+
+
+const store = createStore(reducer); // redux store 생성 후 Provider로 연결
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store = { store }> 
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

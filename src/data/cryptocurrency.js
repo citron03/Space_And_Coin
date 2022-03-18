@@ -1,8 +1,8 @@
 export const orderCrypto = [
-    "BTC", "ETH"
+    "BTC", "ETH", "LTC", "XRP", "ETC", "DOGE", "EOS", "BCH", "BTG"
 ];
 
 export const payment = [
-    "KRW", "BTC"
+    "KRW", "BTC", "USDT"
 ]
 
