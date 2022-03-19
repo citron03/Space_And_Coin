@@ -1,0 +1,28 @@
+#notification-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#cypto-footer {
+    background-color: #0c2461;
+    color: #6a89cc;
+    position: fixed; 
+    bottom: 0; 
+    width: 100%;
+}
+
+#coin-state-setting {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
+
+#coin-state-setting > span {
+    padding: 0 0.5rem 0 0.8rem;
+}
+
+
+#coin-data-show-and-remember {
+
+}

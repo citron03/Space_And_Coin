@@ -23,7 +23,7 @@ const CryptoBookmarks = () => {
             {
                 modalOn
                     ? <Modal message={"선택하신 북마크가 삭제되었습니다."}/>
-                    : <Loding text={" 북마크 목록입니다. "}/>
+                    : <Loding text={`현재 북마크 개수: ${state.count}`}/>
             }
             <div className='bookmark-frame'>
                 {

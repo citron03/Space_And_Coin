@@ -9,9 +9,9 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <div id='router-nav-link-div'>
+        <div id='router-nav-link-container'>
           <NavLink to='/' className='router-nav-link' >우주 사진</NavLink> 
-          <NavLink to='/cryptocurrency'className='router-nav-link'>암호화폐 시세 보기</NavLink> 
+          <NavLink to='/cryptocurrency'className='router-nav-link'>암호화폐</NavLink> 
           <NavLink to='/bookmark'className='router-nav-link'>북마크</NavLink> 
         </div>
         <Routes>

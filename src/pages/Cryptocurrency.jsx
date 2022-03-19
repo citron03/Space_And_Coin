@@ -1,7 +1,8 @@
+import './Cryptocurrency.css';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { orderCrypto, payment } from '../data/cryptocurrency';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToBookmark } from '../redux/action';
 import Loding from '../components/Loding';
 import Modal from './../components/Modal';
@@ -12,7 +13,8 @@ const Cryptocurrency = () => {
     const [coinPayment, setCoinPayment] = useState("KRW"); // KRW 또는 BTC
     const [isLoding, setIsLoding] = useState(false);
     const dispatch = useDispatch(); // 상태 갱신
-    const [notify, setNofity] = useState([]);
+    const state = useSelector(state => state.bookmarkReducer);
+    const [notify, setNofity] = useState([]); // 북마크 추가 알림
     // useEffect cleanup function
     useEffect(() => {
         return () => setIsLoding(false);
@@ -59,8 +61,9 @@ const Cryptocurrency = () => {
     const notifyModalControl = () => {
         setNofity([...notify, `${coinPayment} to ${coinOrder} 북마크에 추가되었습니다`]);
         setTimeout(() => {
-            setNofity(notify.slice(1));
-        }, 5000); // 시간이 지난 뒤 출력한 모달 메세지 삭제
+            // setNofity(notify.slice(1));
+            setNofity([]); //완전히 비워주는 편이 더 깔끔했다.
+        }, 3000); // 시간이 지난 뒤 출력한 모달 메세지 삭제
     }
 
     const appendToBookmark = () => {
@@ -72,15 +75,16 @@ const Cryptocurrency = () => {
                 "payment": coinPayment, 
                 "price": coinData.trade_price,
                 "date": time,
-            })); // action 객체
+            })
+            ); // action 객체
             notifyModalControl(); // 알림 모달
     }
 
     return (
     <div>
-        <p>현재 찜 개수 {}</p>
-        <span>구매할 암호화폐</span>
-        <div>
+        <p>현재 북마크 개수는 {state.count}개 입니다.</p>
+        <div id='coin-state-setting'>
+            <span>구매할 암호화폐</span>
             <select onChange={coinSetting}>
                 {orderCrypto.map((el, idx) => <option key={idx} value={el}>{el}</option>)}
             </select>
@@ -91,13 +95,18 @@ const Cryptocurrency = () => {
         </div>
         {
         isLoding ? <Loding/> : 
-                <div>
+                <div id='coin-data-show-and-remember'>
                 <span> 거래 가격 : {coinData.trade_price} {coinPayment}</span>
                 <button onClick={refreshing}>가격 갱신</button>
                 <button onClick={appendToBookmark}>지금 데이터 기록 하기</button>
             </div>
             }
-        {notify ? notify.map((el, idx) => <Modal key={idx} message={el} />) : null}
+        <div id='notification-container'>
+            {notify ? notify.map((el, idx) => <Modal key={idx} message={el} />) : null}
+        </div>
+        <footer id='cypto-footer'>
+            <p>시세의 출처는 업비트입니다.</p>
+        </footer>
     </div>
     )
 }

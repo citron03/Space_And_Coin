@@ -2,8 +2,9 @@
   text-align: center;
 }
 
-#router-nav-link-div {
+#router-nav-link-container {
   display: flex;
+  align-items: center;
 }
 
 .active{
@@ -12,11 +13,12 @@
 
 .router-nav-link {
   border: 0.3rem solid #c7ecee;
+  height: 3rem;
   border-radius: 0.8rem;
   flex: 1 1 0;
-  font-size: 2rem;
-  padding: 1rem;
-  margin: 0.1rem;
+  font-size: 1.1rem;
+  padding-top: 1rem;
+  margin: 0.5rem;
   text-decoration: none;
   color: black;
 }
