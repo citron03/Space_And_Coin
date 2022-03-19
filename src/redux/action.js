@@ -10,12 +10,9 @@ export const addToBookmark = (data) => {
     }
 }
 
-
-export const removeFromBookmark = (data) => {
+export const removeFromBookmark = (idx) => {
     return {
-        type: ADD_BOOKMARK,
-        payload: {
-            data
-        }
+        type: REMOVE_BOOKMARK,
+        idx
     }
 }

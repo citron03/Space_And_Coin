@@ -4,6 +4,7 @@ import { orderCrypto, payment } from '../data/cryptocurrency';
 import { useDispatch } from 'react-redux';
 import { addToBookmark } from '../redux/action';
 import Loding from '../components/Loding';
+import Modal from './../components/Modal';
 
 const Cryptocurrency = () => {
     const [coinData, setCoinData] = useState([]);
@@ -11,7 +12,7 @@ const Cryptocurrency = () => {
     const [coinPayment, setCoinPayment] = useState("KRW"); // KRW 또는 BTC
     const [isLoding, setIsLoding] = useState(false);
     const dispatch = useDispatch(); // 상태 갱신
-
+    const [notify, setNofity] = useState([]);
     // useEffect cleanup function
     useEffect(() => {
         return () => setIsLoding(false);
@@ -55,6 +56,13 @@ const Cryptocurrency = () => {
     }
     // console.log(coinData);
 
+    const notifyModalControl = () => {
+        setNofity([...notify, `${coinPayment} to ${coinOrder} 북마크에 추가되었습니다`]);
+        setTimeout(() => {
+            setNofity(notify.slice(1));
+        }, 5000); // 시간이 지난 뒤 출력한 모달 메세지 삭제
+    }
+
     const appendToBookmark = () => {
         let time = new Date(coinData.trade_timestamp); // 타임 스탬프 날짜 변환
         dispatch(addToBookmark(
@@ -65,6 +73,7 @@ const Cryptocurrency = () => {
                 "price": coinData.trade_price,
                 "date": time,
             })); // action 객체
+            notifyModalControl(); // 알림 모달
     }
 
     return (
@@ -88,6 +97,7 @@ const Cryptocurrency = () => {
                 <button onClick={appendToBookmark}>지금 데이터 기록 하기</button>
             </div>
             }
+        {notify ? notify.map((el, idx) => <Modal key={idx} message={el} />) : null}
     </div>
     )
 }

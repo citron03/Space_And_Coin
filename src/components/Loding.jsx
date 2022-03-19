@@ -1,6 +1,6 @@
-const Loding = () => {
+const Loding = ({text = "로딩중입니다..."}) => {
     return (
-        <div>로딩중입니다...</div>
+        <div>{text}</div>
     )
 }
 
