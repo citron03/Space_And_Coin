@@ -24,5 +24,23 @@
 
 
 #coin-data-show-and-remember {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+}
 
+#coin-data-show-and-remember > button {
+    display: block;
+    margin: 1rem auto 1rem auto;
+}
+
+.crypto-price-show {
+    padding: 0.4rem;
+    border: 0.1rem solid #38ada9;
+    border-radius: 1rem;
+}
+
+button {
+    background-color: white;
+    border-radius: 2rem;
 }

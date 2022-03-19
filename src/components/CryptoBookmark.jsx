@@ -23,13 +23,6 @@ const CryptoBookmark = ({data, modalTurnOn, idx}) => {
         setTimeout(() => {
             modalTurnOn(false); // 3초뒤 컴포넌트 삭제
         }, 800);
-        /*
-            setTimeout 시간이 3000과 같이 길면, 콘솔에 다음과 같은 오류가 발생한다.
-            react-dom.development.
-            js:67 Warning: Can't perform a React state update on an unmounted component. 
-            This is a no-op, but it indicates a memory leak in your application. 
-            To fix, cancel all subscriptions and asynchronous tasks in a useEffect cleanup function.
-        */
     }
 
     return(

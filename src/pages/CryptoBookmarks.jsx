@@ -19,7 +19,7 @@ const CryptoBookmarks = () => {
 
     return (
         <div>
-            <p>북마크한 암호화폐 가격</p>
+            <div className="bookmarked-crypto-price-tag">북마크한 암호화폐 가격</div>
             {
                 modalOn
                     ? <Modal message={"선택하신 북마크가 삭제되었습니다."}/>

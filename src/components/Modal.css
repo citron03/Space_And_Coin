@@ -1,6 +1,7 @@
 .fadeout-modal {
     animation: fadeout 3s;
-    border: 0.1rem solid red;
+    border: 0.1rem solid #4a69bd;
+    border-radius: 3rem;
     padding: 0.3rem;
     opacity: 0;
     margin: 0.3rem;

@@ -2,3 +2,11 @@
     width: 95%;
     height: auto;
 }
+
+.space-picture-tag {
+    padding: 0.4rem;
+    border: 0.1rem solid #38ada9;
+    border-radius: 1rem;
+    max-width: 10rem;
+    margin: 0.5rem auto 0.5rem auto;
+}

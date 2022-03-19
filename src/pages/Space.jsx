@@ -29,7 +29,7 @@ const Space = () => {
     // 파파고 API로 영어 설명 번역하기
     return (
     <>
-      <div>우주 사진 from NASA</div>
+      <div className='space-picture-tag'>우주 사진 from NASA</div>
         {isLoding ? <Loding /> : 
         <div>
           <img id='space-random-picture' src={url} alt={title} />
