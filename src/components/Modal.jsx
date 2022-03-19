@@ -1,7 +1,9 @@
-const Modal = () => {
+import './Modal.css';
+
+const Modal = ({message}) => {
 
     return (
-        <p>Modal</p>
+        <span className='fadeout-modal'>{message}</span>
     )
 }
 
