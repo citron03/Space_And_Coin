@@ -1,19 +1,15 @@
-.bookmark-frame {
+#bookmark-menu-container {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
 }
 
 .bookmarked-crypto-price-tag {
-  padding: 0.4rem;
-  border: 0.1rem solid #38ada9;
-  border-radius: 1rem;
-  max-width: 13rem;
-  margin: 1rem auto 1rem auto;
-}
-
-button {
-  background-color: white;
-  border-radius: 2rem;
+    padding: 0.4rem;
+    border: 0.1rem solid #38ada9;
+    border-radius: 1rem;
+    max-width: 13rem;
+    margin: 1.5rem auto;
+    text-decoration: none;
+    color: black;
+    height: 10rem;
 }

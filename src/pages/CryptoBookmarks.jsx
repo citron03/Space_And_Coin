@@ -1,43 +1,23 @@
-import {useSelector} from 'react-redux';
-import CryptoBookmark from '../components/CryptoBookmark';
 import './CryptoBookmarks.css';
-import {useState, useEffect} from 'react';
-import Modal from '../components/Modal';
-import Loding from '../components/Loding';
-// redux로 체크한 스탬프 데이터 관리 CryptoStamp로 기록한 데이터 뿌려준다.
+import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faList, faChartLine, faNewspaper } from '@fortawesome/free-solid-svg-icons';
 
 const CryptoBookmarks = () => {
-
-    let state = useSelector(state => state.bookmarkReducer);
-    // combineReducers로 결합한 reducer중에서 사용할 reducer 선택
-    const [modalOn, setModalOn] = useState(false);
-
-    // useEffect cleanup function
-    useEffect(() => {
-        return () => setModalOn(false);
-      }, []);
-
     return (
-        <div>
-            <div className="bookmarked-crypto-price-tag">북마크한 암호화폐 가격</div>
-            {
-                modalOn
-                    ? <Modal message={"선택하신 북마크가 삭제되었습니다."}/>
-                    : <Loding text={`현재 북마크 개수: ${state.count}`}/>
-            }
-            <div className='bookmark-frame'>
-                {
-                    state
-                        .cryptocurrency
-                        .map(
-                            (el, idx) => <CryptoBookmark
-                                key={idx}
-                                idx={idx}
-                                data={el.data}
-                                modalTurnOn={(el) => setModalOn(el)}/>
-                        )
-                }
-            </div>
+        <div id='bookmark-menu-container'>
+            <NavLink to="/bookmark/list" className="bookmarked-crypto-price-tag">
+                <div>북마크한 암호화폐 가격</div>
+                <FontAwesomeIcon icon={faList}  className="font-awesome-icons"/>
+            </NavLink>
+            <NavLink to="/bookmark/graph" className="bookmarked-crypto-price-tag">
+                <div>북마크한 암호화폐 그래프</div>
+                <FontAwesomeIcon icon={faChartLine} className="font-awesome-icons" />
+            </NavLink>
+            <NavLink to="/bookmark/list" className="bookmarked-crypto-price-tag">
+                <div>북마크한 암호화폐 뉴스</div>
+                <FontAwesomeIcon icon={faNewspaper}  className="font-awesome-icons"/>
+            </NavLink>
         </div>
     );
 }

@@ -1,0 +1,18 @@
+.bookmark-frame {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+
+button {
+  background-color: white;
+  border-radius: 2rem;
+}
+
+.font-awesome-icons {
+  height: 9rem;
+  width: 9rem;
+}
