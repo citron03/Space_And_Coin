@@ -47,7 +47,7 @@ const BookmarkGraph = () => {
         // 처음 한번만 실행
         const ctx = canvas.current.getContext("2d");   
         new Chart(ctx, config);
-    }, []);
+    }, [state]); // useEffect에 두 번째 인자로 state값을 넣어주지 않으면 React Hook useEffect has a missing dependency 에러 발생한다.
 
     return (
     <div>
