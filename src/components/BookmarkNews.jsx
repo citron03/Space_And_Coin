@@ -11,7 +11,6 @@ const BookmarkNews = () => {
     let [isLoding, setIsLoding] = useState(false);
     let [queryArr, setQueryArr] = useState([]);
     let [news, setNews] = useState([]);
-    let query = new Set(); // 중복 없이
 
     // useEffect cleanup function
     useEffect(() => {
@@ -20,6 +19,8 @@ const BookmarkNews = () => {
 
 
     useEffect(() => {
+        let query = new Set(); // 중복 없이
+
         for(let i of state.cryptocurrency){
             if(i !== undefined){ // 삭제된 북마크 건너뜀
                 query.add(i.data.order);
