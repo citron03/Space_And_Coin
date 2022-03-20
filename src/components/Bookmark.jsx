@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
-import { removeFromBookmark } from './../redux/action';
-import './CryptoBookmark.css';
+import { removeFromBookmark } from '../redux/action';
+import './Bookmark.css';
 
-const CryptoBookmark = ({data, modalTurnOn, idx}) => {
+const Bookmark = ({data, modalTurnOn, idx}) => {
     const { order, payment, price, date } = data;
     const dispatch = useDispatch();
 
@@ -35,4 +35,4 @@ const CryptoBookmark = ({data, modalTurnOn, idx}) => {
     );
 }
 
-export default CryptoBookmark;
+export default Bookmark;

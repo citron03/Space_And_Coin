@@ -36,7 +36,7 @@ const Space = () => {
           {copyright ?
              <p>copyright : {copyright}</p> : null}
           <div>
-              <p>{explanation}</p>
+              <p className='space-explanation'>{explanation}</p>
           </div>
         </div>
         }

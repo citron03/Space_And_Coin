@@ -5,6 +5,7 @@ import Cryptocurrency from './pages/Cryptocurrency';
 import CryptoBookmarks from './pages/CryptoBookmarks';
 import BookmarkList from './components/BookmarkList';
 import BookmarkGraph from './components/BookmarkGraph';
+import BookmarkNews from './components/BookmarkNews';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
             <Route path="/bookmark" element={<CryptoBookmarks/>} />
             <Route path="/bookmark/list" element={<BookmarkList/>} />
             <Route path="/bookmark/graph" element={<BookmarkGraph/>} />
+            <Route path="/bookmark/news" element={<BookmarkNews/>} />
         </Routes>
       </BrowserRouter>
       <footer className='font-source-show'>이 웹사이트에 사용된 폰트는 순천시청의 순천체B입니다.</footer>

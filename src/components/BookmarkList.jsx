@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux';
-import CryptoBookmark from './CryptoBookmark';
+import Bookmark from './Bookmark';
 import './BookmarkList.css';
 import {useState, useEffect} from 'react';
 import Modal from './/Modal';
@@ -16,7 +16,7 @@ const BookmarkList = () => {
     // useEffect cleanup function
     useEffect(() => {
         return () => setModalOn(false);
-      }, []);
+      }, [state]);
 
     return (
         <div>
@@ -30,7 +30,7 @@ const BookmarkList = () => {
                     state
                         .cryptocurrency
                         .map(
-                            (el, idx) => <CryptoBookmark
+                            (el, idx) => <Bookmark
                                 key={idx}
                                 idx={idx}
                                 data={el.data}

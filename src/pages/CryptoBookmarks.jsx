@@ -14,8 +14,8 @@ const CryptoBookmarks = () => {
                 <div>북마크한 암호화폐 그래프</div>
                 <FontAwesomeIcon icon={faChartLine} className="font-awesome-icons" />
             </NavLink>
-            <NavLink to="/bookmark/list" className="bookmarked-crypto-price-tag">
-                <div>북마크한 암호화폐 뉴스</div>
+            <NavLink to="/bookmark/news" className="bookmarked-crypto-price-tag">
+                <div>북마크한 암호화폐의 글</div>
                 <FontAwesomeIcon icon={faNewspaper}  className="font-awesome-icons"/>
             </NavLink>
         </div>
