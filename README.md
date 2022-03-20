@@ -1,5 +1,6 @@
 # Space_And_Coin
 멋진 우주 사진과 디지털 자산의 정보를 제공하는 사이트
+[![Netlify Status](https://api.netlify.com/api/v1/badges/31a70c36-0474-44a0-a556-a90f13cca343/deploy-status)](https://app.netlify.com/sites/loving-davinci-479f81/deploys)
 
 * 배포 링크 : https://loving-davinci-479f81.netlify.app/
 * netlify를 통해 배포하였습니다.
