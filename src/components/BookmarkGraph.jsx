@@ -53,7 +53,7 @@ const BookmarkGraph = () => {
 
     return (
     <div>
-        {state.cryptocurrency.length === 0 ? <p>북마크된 데이터가 없습니다.</p> : null}
+        {state.count === 0 ? <p>북마크된 데이터가 없습니다.</p> : null}
         <canvas ref={canvas}></canvas> 
     </div>
     );
