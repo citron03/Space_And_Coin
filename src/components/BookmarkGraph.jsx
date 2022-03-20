@@ -5,7 +5,6 @@ import {useEffect, useRef} from "react";
 const BookmarkGraph = () => {
 
     let state = useSelector(state => state.bookmarkReducer);
-
     // 랜덤 색상 만들기
     const getRandomColor = () => "#" + Math.floor(Math.random() * 16777215).toString(16);
     
@@ -14,6 +13,9 @@ const BookmarkGraph = () => {
     useEffect(() => {
         let dataObj = {};
         for(let i of state.cryptocurrency){
+            if(i === undefined){ // 삭제되어 빈 배열이 있을 수 있다.
+                continue;
+            }
             let str = i.data.payment + " to " + i.data.order;
             if(dataObj[str]){
                 // 이미 있으면 추가
