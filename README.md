@@ -2,7 +2,7 @@
 멋진 우주 사진과 디지털 자산의 정보를 제공하는 사이트
 [![Netlify Status](https://api.netlify.com/api/v1/badges/31a70c36-0474-44a0-a556-a90f13cca343/deploy-status)](https://app.netlify.com/sites/loving-davinci-479f81/deploys)
 
-* 배포 링크 : https://loving-davinci-479f81.netlify.app/
+* 배포 링크 : https://space-and-coin.netlify.app/
 * netlify를 통해 배포하였습니다.
 * 사용된 폰트는 순천시청의 순천체B입니다.
 * axios, redux, Font Awesome, Chart.js를 사용했습니다.
